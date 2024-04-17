@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Стеганография</title>
+</head>
+<body>
+  <h1>Стеганография</h1>
+
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="file">Выберите файл:</label><br>
+    <input type="file" id="file" name="file" accept="video/*"><br><br>
+
+    <label for="message">Введите текст для стеганографии:</label><br><br>
+    <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+    <input type="submit" value="Загрузить и применить стеганографию">
+  </form>
+
+  <hr>
+
+  <form action="/" method="post" enctype="multipart/form-data">
+    <label for="encryptedFile">Выберите зашифрованный файл:</label><br><br>
+    <input type="file" id="encryptedFile" name="encryptedFile"><br><br>
+
+    <input type="submit" value="Расшифровать файл">
+  </form>
+
+  <div id="result"></div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  $('form').submit(function(event) {
+    event.preventDefault();
+    var form = $(this);
+    var url = form.attr('action');
+    var formData = new FormData(form[0]);
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(response) {
+        $('#result').html('<p>Извлеченное сообщение:</p><span>' + response + '</span>');
+      },
+      error: function(xhr, textStatus, error) {
+        console.log('Ошибка при отправке запроса:', error);
+      }
+    });
+  });
+});
+</script>
+
+</html>
