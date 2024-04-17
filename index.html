@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Стеганография</title>
+  <title>Стеганография в видео</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
 </head>
 <body>
-  <h1>Стеганография</h1>
+  <main class="container">
+    <h1>Стеганография в видео</h1>
 
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <label for="file">Выберите файл:</label><br>
-    <input type="file" id="file" name="file" accept="video/*"><br><br>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <label for="file">Выберите файл:</label>
+      <input type="file" id="file" name="file" accept="video/*">
 
-    <label for="message">Введите текст для стеганографии:</label><br><br>
-    <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+      <label for="message">Введите текст для стеганографии:</label>
+      <textarea id="message" name="message" rows="4" cols="50"></textarea>
 
-    <input type="submit" value="Загрузить и применить стеганографию">
-  </form>
+      <input type="submit" value="Загрузить и применить стеганографию">
+    </form>
 
-  <hr>
+    <hr>
 
-  <form id="decrypt" action="/" method="post" enctype="multipart/form-data">
-    <label for="encryptedFile">Выберите зашифрованный файл:</label><br><br>
-    <input type="file" id="encryptedFile" name="encryptedFile"><br><br>
+    <form id="decrypt" action="/" method="post" enctype="multipart/form-data">
+      <label for="encryptedFile">Выберите зашифрованный файл:</label>
+      <input type="file" id="encryptedFile" name="encryptedFile">
 
-    <input type="submit" value="Расшифровать файл">
-  </form>
+      <input type="submit" value="Расшифровать файл">
+    </form>
 
-  <div id="result"></div>
-
+    <div id="result"></div>
+  </main>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
