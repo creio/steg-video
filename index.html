@@ -18,7 +18,7 @@
 
   <hr>
 
-  <form action="/" method="post" enctype="multipart/form-data">
+  <form id="decrypt" action="/" method="post" enctype="multipart/form-data">
     <label for="encryptedFile">Выберите зашифрованный файл:</label><br><br>
     <input type="file" id="encryptedFile" name="encryptedFile"><br><br>
 
@@ -33,7 +33,7 @@
 
 <script>
 $(document).ready(function() {
-  $('form').submit(function(event) {
+  $('#decrypt').submit(function(event) {
     event.preventDefault();
     var form = $(this);
     var url = form.attr('action');

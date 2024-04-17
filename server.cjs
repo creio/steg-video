@@ -8,8 +8,8 @@ const app = express();
 const port = 3000;
 
 const htmlFilePath = path.join(__dirname, 'index.html');
-const uploadDir = path.join(__dirname, 'uploads');
-const outputFilePath = path.join(__dirname, 'output.mp4');
+const uploadDir = '/tmp/uploads';
+const outputFilePath = '/tmp/output.mp4';
 
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
